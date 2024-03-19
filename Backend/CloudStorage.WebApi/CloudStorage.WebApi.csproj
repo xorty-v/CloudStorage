@@ -16,11 +16,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Controllers\"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <ProjectReference Include="..\CloudStorage.Persistence\CloudStorage.Persistence.csproj"/>
+        <ProjectReference Include="..\CloudStorage.Service\CloudStorage.Service.csproj"/>
     </ItemGroup>
 
 </Project>

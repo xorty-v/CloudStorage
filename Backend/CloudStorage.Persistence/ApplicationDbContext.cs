@@ -1,4 +1,5 @@
 ﻿using CloudStorage.Domain.Entities;
+using CloudStorage.Persistence.EntityTypeConfiguration;
 using Microsoft.EntityFrameworkCore;
 using File = CloudStorage.Domain.Entities.File;
 
@@ -18,6 +19,10 @@ public sealed class ApplicationDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.ApplyConfiguration(new UserTypeConfiguration());
+        builder.ApplyConfiguration(new FolderTypeConfiguration());
+        builder.ApplyConfiguration(new FileTypeConfiguration());
+
         base.OnModelCreating(builder);
     }
 }

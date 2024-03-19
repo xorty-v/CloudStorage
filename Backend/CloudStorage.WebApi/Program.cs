@@ -1,6 +1,11 @@
+using CloudStorage.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+var configuration = builder.Configuration;
+
+builder.Services.AddPersistence(configuration);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

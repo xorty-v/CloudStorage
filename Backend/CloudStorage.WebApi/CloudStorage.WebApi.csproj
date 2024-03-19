@@ -4,14 +4,23 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>8ce56ccc-d141-47f9-8c1e-fde14d1a76c2</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.20">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     </ItemGroup>
 
     <ItemGroup>
         <Folder Include="Controllers\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\CloudStorage.Persistence\CloudStorage.Persistence.csproj"/>
     </ItemGroup>
 
 </Project>

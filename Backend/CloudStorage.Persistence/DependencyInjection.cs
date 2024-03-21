@@ -18,6 +18,9 @@ public static class DependencyInjection
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
 
+        services.AddScoped<IFolderRepository, FolderRepository>();
+        services.AddScoped<IFileRepository, FileRepository>();
+
         return services;
     }
 }

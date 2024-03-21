@@ -11,6 +11,7 @@ public static class DependencyInjection
         IConfiguration configuration)
     {
         services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<IStorageService, StorageService>();
 
         return services;
     }

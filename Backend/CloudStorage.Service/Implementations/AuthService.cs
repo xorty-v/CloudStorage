@@ -12,14 +12,17 @@ namespace CloudStorage.Service.Implementations;
 public class AuthService : IAuthService
 {
     private readonly IUserRepository _userRepository;
+    private readonly IFolderRepository _folderRepository;
     private readonly IConfiguration _configuration;
     private readonly IPasswordHasher _passwordHasher;
 
-    public AuthService(IUserRepository userRepository, IPasswordHasher passwordHasher, IConfiguration configuration)
+    public AuthService(IUserRepository userRepository, IPasswordHasher passwordHasher, IConfiguration configuration,
+        IFolderRepository folderRepository)
     {
         _userRepository = userRepository;
         _passwordHasher = passwordHasher;
         _configuration = configuration;
+        _folderRepository = folderRepository;
     }
 
     public async Task RegistrationAsync(string username, string email, string password,
@@ -39,6 +42,8 @@ public class AuthService : IAuthService
         };
 
         await _userRepository.AddAsync(user, cancellationToken);
+
+        await _folderRepository.InitUserRootDirectory(user.Id, cancellationToken);
     }
 
     public async Task<TokenResponse> LoginAsync(string email, string password, CancellationToken cancellationToken)

@@ -11,7 +11,8 @@ public static class DependencyInjection
         IConfiguration configuration)
     {
         services.AddScoped<IAuthService, AuthService>();
-        services.AddScoped<IStorageService, StorageService>();
+        services.AddScoped<IFolderService, FolderService>();
+        services.AddScoped<IFileService, FileService>();
 
         return services;
     }

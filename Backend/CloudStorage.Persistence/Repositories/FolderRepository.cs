@@ -34,6 +34,7 @@ public class FolderRepository : IFolderRepository
         CancellationToken cancellationToken)
     {
         return await _dbContext.Folders
+            .AsNoTracking()
             .Include(f => f.SubFolders)
             .Include(f => f.Files)
             .FirstOrDefaultAsync(f => f.Id == folderId && f.UserId == userId, cancellationToken);
